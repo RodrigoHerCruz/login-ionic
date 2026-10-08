@@ -1,0 +1,7 @@
+{
+  "name": "login-ionic",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react-vite"
+}
