@@ -1,0 +1,194 @@
+.about-content {
+  --background: #05080d;
+  --color: #f5f8fa;
+}
+
+.about-content::part(background) {
+  background:
+    radial-gradient(ellipse at 50% 0%, rgb(29 155 240 / 11%), transparent 440px),
+    #05080d;
+}
+
+.about-shell {
+  box-sizing: border-box;
+  width: min(100% - 36px, 920px);
+  margin: 0 auto;
+  padding: 54px 0 42px;
+}
+
+.about-heading {
+  max-width: 640px;
+  margin: 0 auto 36px;
+  text-align: center;
+}
+
+.about-eyebrow {
+  color: #1d9bf0;
+  font-size: 11px;
+  font-weight: 750;
+  letter-spacing: 0.15em;
+}
+
+.about-heading h1 {
+  margin: 12px 0 10px;
+  color: #f5f8fa;
+  font-size: clamp(32px, 6vw, 46px);
+  font-weight: 800;
+  letter-spacing: -0.045em;
+}
+
+.about-heading p {
+  margin: 0;
+  color: #9aa8b5;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.section-heading {
+  display: flex;
+  margin-bottom: 14px;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.section-heading h2 {
+  margin: 0;
+  color: #f5f8fa;
+  font-size: 21px;
+  font-weight: 750;
+}
+
+.section-heading span {
+  color: #778899;
+  font-size: 12px;
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 12px;
+}
+
+.team-card,
+.course-card {
+  margin: 0;
+  border: 1px solid #263442;
+  border-radius: 15px;
+  background: #0c1118;
+  box-shadow: none;
+}
+
+.team-card ion-card-content {
+  display: grid;
+  min-height: 102px;
+  padding: 17px;
+  grid-template-columns: 46px 1fr;
+  align-content: center;
+  align-items: center;
+  column-gap: 13px;
+}
+
+.member-avatar {
+  display: grid;
+  width: 46px;
+  height: 46px;
+  grid-row: span 2;
+  place-items: center;
+  border: 1px solid rgb(29 155 240 / 35%);
+  border-radius: 50%;
+  background: rgb(29 155 240 / 13%);
+  color: #4ab3ff;
+  font-size: 13px;
+  font-weight: 750;
+}
+
+.avatar-2,
+.avatar-5 {
+  background: rgb(29 155 240 / 20%);
+  color: #80c8ff;
+}
+
+.avatar-3 {
+  background: #102331;
+  color: #8bd3ff;
+}
+
+.avatar-4 {
+  background: #0c2a3e;
+  color: #5ebcff;
+}
+
+.team-card h3 {
+  margin: 0;
+  color: #f5f8fa;
+  font-size: 14px;
+  font-weight: 650;
+  line-height: 1.4;
+}
+
+.team-card p {
+  margin: 4px 0 0;
+  color: #778899;
+  font-size: 12px;
+}
+
+.course-card {
+  margin-top: 26px;
+}
+
+.course-card ion-card-content {
+  padding: 22px;
+}
+
+.course-card h2 {
+  margin: 8px 0 18px;
+  color: #f5f8fa;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.course-details {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 14px 24px;
+}
+
+.course-details p {
+  display: grid;
+  gap: 5px;
+  margin: 0;
+  color: #d5e0e8;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.course-details span {
+  color: #778899;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.about-continue {
+  max-width: 360px;
+  margin: 24px auto 0;
+  --background: #1d9bf0;
+  --background-activated: #1687d2;
+  --background-hover: #1687d2;
+  --border-radius: 999px;
+  --box-shadow: none;
+  --color: #fff;
+  font-weight: 700;
+  text-transform: none;
+}
+
+@media (max-width: 520px) {
+  .about-shell {
+    padding-top: 38px;
+  }
+
+  .team-grid {
+    grid-template-columns: 1fr;
+  }
+}
