@@ -1,19 +1,23 @@
 import { IonContent, IonPage } from '@ionic/react';
 import { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const Splash: React.FC = () => {
 
   const navigate = useNavigate();
+  const { pathname } = useLocation();
   useEffect(() => {
+    // Ionic keeps previous pages mounted; only redirect while Splash is active.
+    if (pathname !== '/splash') return;
+
     const timer = setTimeout(() => {
-        navigate("/about")
+        navigate('/about', { replace: true });
     }, 2000);
 
     return () => {
         clearTimeout(timer);
     };
-  }, [navigate]);
+  }, [navigate, pathname]);
 
   return (
     <IonPage>
