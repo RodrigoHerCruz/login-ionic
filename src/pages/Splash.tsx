@@ -1,45 +1,23 @@
-import {
-  IonButton,
-  IonContent,
-  IonHeader,
-  IonIcon,
-  IonPage,
-  IonText,
-  IonTitle,
-  IonToolbar,
-} from '@ionic/react';
-import { arrowForwardOutline } from 'ionicons/icons';
-import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { IonContent, IonPage } from '@ionic/react';
+import { useEffect } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const Splash: React.FC = () => {
   const navigate = useNavigate();
-  const [progress, setProgress] = useState(0);
-
+  const { pathname } = useLocation();
   useEffect(() => {
-    const duration = 2800;
-    const intervalTime = 28;
-    const step = 100 / (duration / intervalTime);
+    // Ionic keeps previous pages mounted; only redirect while Splash is active.
+    if (pathname !== '/splash') return;
 
-    const progressTimer = setInterval(() => {
-      setProgress((prev) => {
-        if (prev + step >= 100) {
-          clearInterval(progressTimer);
-          return 100;
-        }
-        return prev + step;
-      });
-    }, intervalTime);
-
-    const navTimer = setTimeout(() => {
-      navigate('/about');
-    }, duration + 200);
+    const timer = setTimeout(() => {
+        navigate('/about', { replace: true });
+    }, 2000);
 
     return () => {
       clearInterval(progressTimer);
       clearTimeout(navTimer);
     };
-  }, [navigate]);
+  }, [navigate, pathname]);
 
   const statusLabel =
     progress < 40
