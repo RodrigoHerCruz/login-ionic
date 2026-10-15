@@ -9,7 +9,6 @@ import {
   IonImg,
   IonItem,
   IonLabel,
-  IonList,
   IonModal,
   IonPage,
   IonText,
@@ -71,19 +70,25 @@ const About: React.FC = () => {
   return (
     <IonPage>
       <IonHeader className="ion-no-border">
-        <IonToolbar style={{ '--background': '#0b0b0b', '--color': '#ffffff' }}>
+        <IonToolbar className="about-toolbar">
           <IonTitle style={{ fontSize: '13px', letterSpacing: '1.5px', textTransform: 'uppercase', fontWeight: '500' }}>
             workme
           </IonTitle>
         </IonToolbar>
       </IonHeader>
 
-      <IonContent className="ion-padding" style={{
-        '--background': '#0b0b0b',
-        'color': '#ffffff'
-      }}>
+      <IonContent className="ion-padding about-content" style={{ color: '#ffffff' }}>
 
         <style>{`
+          .about-toolbar {
+            --background: #0b0b0b;
+            --color: #ffffff;
+          }
+
+          .about-content {
+            --background: #0b0b0b;
+          }
+
           .dark-card {
             background: #141414 !important;
             border: 1px solid #222222 !important;

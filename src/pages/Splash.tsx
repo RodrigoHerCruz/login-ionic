@@ -1,16 +1,32 @@
-import { IonContent, IonPage } from '@ionic/react';
-import { useEffect } from 'react';
+import {
+  IonButton,
+  IonContent,
+  IonHeader,
+  IonIcon,
+  IonPage,
+  IonText,
+  IonTitle,
+  IonToolbar,
+} from '@ionic/react';
+import { arrowForwardOutline } from 'ionicons/icons';
+import { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 const Splash: React.FC = () => {
   const navigate = useNavigate();
   const { pathname } = useLocation();
+  const [progress, setProgress] = useState(0);
+
   useEffect(() => {
     // Ionic keeps previous pages mounted; only redirect while Splash is active.
     if (pathname !== '/splash') return;
 
-    const timer = setTimeout(() => {
-        navigate('/about', { replace: true });
+    setProgress(0);
+    const progressTimer = setInterval(() => {
+      setProgress((currentProgress) => Math.min(currentProgress + 1, 100));
+    }, 20);
+    const navTimer = setTimeout(() => {
+      navigate('/about', { replace: true });
     }, 2000);
 
     return () => {
@@ -35,7 +51,7 @@ const Splash: React.FC = () => {
   return (
     <IonPage>
       <IonHeader className="ion-no-border">
-        <IonToolbar style={{ '--background': '#0b0b0b', '--color': '#ffffff' }}>
+        <IonToolbar className="splash-toolbar">
           <div
             style={{
               display: 'flex',
@@ -76,13 +92,21 @@ const Splash: React.FC = () => {
 
       <IonContent
         fullscreen
-        className="ion-padding"
+        className="ion-padding splash-content"
         style={{
-          '--background': '#0b0b0b',
           color: '#ffffff',
         }}
       >
         <style>{`
+          .splash-toolbar {
+            --background: #0b0b0b;
+            --color: #ffffff;
+          }
+
+          .splash-content {
+            --background: #0b0b0b;
+          }
+
           @keyframes splashFadeUp {
             from {
               opacity: 0;
