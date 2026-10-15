@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">login-ionic</string>
+    <string name="title_activity_main">login-ionic</string>
+    <string name="package_name">io.ionic.starter</string>
+    <string name="custom_url_scheme">io.ionic.starter</string>
+
+    <!-- Esquema para regresar del login con X -->
+    <string name="oauth_callback_scheme">loginionic</string>
+</resources>
