@@ -12,11 +12,11 @@ const NavigationHarness = () => {
 
 afterEach(() => { cleanup(); vi.useRealTimers(); });
 
-test('a cached Splash does not send the user back after continuing to Login', () => {
+test('Splash redirects to Login after its display time and does not redirect again', () => {
   vi.useFakeTimers();
   render(<MemoryRouter initialEntries={['/splash']}><NavigationHarness /></MemoryRouter>);
   act(() => { vi.advanceTimersByTime(2000); });
-  expect(screen.getByTestId('path').textContent).toBe('/about');
+  expect(screen.getByTestId('path').textContent).toBe('/login');
   fireEvent.click(screen.getByText('Continuar'));
   act(() => { vi.advanceTimersByTime(10000); });
   expect(screen.getByTestId('path').textContent).toBe('/login');

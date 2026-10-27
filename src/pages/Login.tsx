@@ -6,7 +6,7 @@ import {
   sparklesOutline,
   checkmarkOutline,
 } from 'ionicons/icons';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { startXLogin } from '../services/NativeAuth';
 import './Login.css';
@@ -24,6 +24,16 @@ const Login: React.FC = () => {
   const params = new URLSearchParams(location.search);
   const loginSuccess = params.get('login') === 'success';
   const loginFailed = params.get('login') === 'error';
+
+  useEffect(() => {
+    if (!loginSuccess) return;
+
+    const redirectTimer = setTimeout(() => {
+      navigate('/about', { replace: true });
+    }, 2000);
+
+    return () => clearTimeout(redirectTimer);
+  }, [loginSuccess, navigate]);
 
   const handleLogin = async () => {
     setLoading(true);
@@ -48,7 +58,7 @@ const Login: React.FC = () => {
         <div className="login-shell">
           <header className="login-brand"><span className="pulse-mark" aria-hidden="true">➤</span>workme</header>
           <main className="login-main">
-            <button className="login-back" aria-label="Volver al inicio" onClick={() => navigate('/about')}><IonIcon icon={arrowBackOutline} /></button>
+            <button className="login-back" aria-label="Volver al inicio" onClick={() => navigate('/splash')}><IonIcon icon={arrowBackOutline} /></button>
             <p className="login-eyebrow"><IonIcon icon={logInOutline} /> ACCESO DE USUARIO</p>
             <h1 className="login-title">Entra a<span>la</span><span>conversación.</span></h1>
             <p className="login-description">Autentícate de forma rápida usando tu cuenta de X.</p>

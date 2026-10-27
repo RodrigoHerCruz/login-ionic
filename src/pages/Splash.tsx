@@ -26,7 +26,7 @@ const Splash: React.FC = () => {
       setProgress((currentProgress) => Math.min(currentProgress + 1, 100));
     }, 20);
     const navTimer = setTimeout(() => {
-      navigate('/about', { replace: true });
+      navigate('/login', { replace: true });
     }, 2000);
 
     return () => {
@@ -454,7 +454,7 @@ const Splash: React.FC = () => {
               </div>
             </div>
 
-            {/* Botón de acceso directo siguiendo el estilo de About.tsx */}
+            {/* Botón de acceso al login */}
             <div style={{ marginBottom: '16px' }}>
               <IonButton
                 expand="block"
@@ -467,9 +467,9 @@ const Splash: React.FC = () => {
                   height: '50px',
                   textTransform: 'none',
                 }}
-                onClick={() => navigate('/about')}
+                onClick={() => navigate('/login')}
               >
-                Explorar proyecto
+                Iniciar sesión
                 <IonIcon
                   icon={arrowForwardOutline}
                   slot="end"
