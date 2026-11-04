@@ -7,6 +7,7 @@ import About from './pages/About';
 import { useEffect, useRef } from 'react';
 import { App as CapacitorApp } from '@capacitor/app';
 import { exchangeNativeCode } from './services/NativeAuth';
+import { prepareHomeInterstitial } from './services/Ads';
 
 
 /* Core CSS required for Ionic components to work properly */
@@ -145,6 +146,7 @@ const NativeAuthRedirectHandler: React.FC = () => {
 const App: React.FC = () => (
   <IonApp>
     <IonReactRouter>
+      <AdMobInitializer />
       <NativeAuthRedirectHandler />
 
       <IonRouterOutlet>
@@ -159,5 +161,13 @@ const App: React.FC = () => (
     </IonReactRouter>
   </IonApp>
 );
+
+const AdMobInitializer: React.FC = () => {
+  useEffect(() => {
+    void prepareHomeInterstitial();
+  }, []);
+
+  return null;
+};
 
 export default App;

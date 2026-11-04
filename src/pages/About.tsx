@@ -16,11 +16,16 @@ import {
   IonToolbar,
 } from '@ionic/react';
 import { arrowForwardOutline, closeOutline, informationCircleOutline } from 'ionicons/icons';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { showHomeInterstitial } from '../services/Ads';
 
 const About: React.FC = () => {
   const navigate = useNavigate();
+
+  useEffect(() => {
+    void showHomeInterstitial();
+  }, []);
 
   const teamMembers = [
     {
