@@ -23,6 +23,7 @@
 .x-badge { width: 20px; height: 20px; border-radius: 50%; display: grid; place-items: center; background: #10110f; color: #f4f5ee; font-size: 11px; }
 .login-success { display: flex; align-items: center; gap: 9px; margin: 20px 0 0; padding: 13px 12px; border: 1px solid #33452b; border-radius: 11px; background: #182015; color: #a9cd91; font-size: 11px; line-height: 1.5; }
 .login-success ion-icon { flex-shrink: 0; font-size: 16px; }
+.native-video-ad-container { display: block; width: 100%; min-height: 320px; margin: 24px 0 0; overflow: hidden; }
 .login-note { display: flex; align-items: flex-start; gap: 10px; margin-top: auto; padding-top: 32px; color: #808477; }
 .login-note ion-icon { flex-shrink: 0; font-size: 13px; }
 .login-note p { margin: 0; font-size: 12px; line-height: 1.6; }

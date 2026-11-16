@@ -7,4 +7,6 @@
 
     <!-- Esquema para regresar del login con X -->
     <string name="oauth_callback_scheme">loginionic</string>
+
+    <string name="admob_app_id">ca-app-pub-3940256099942544~3347511713</string>
 </resources>

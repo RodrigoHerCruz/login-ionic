@@ -10,6 +10,8 @@
 
 # production
 /dist
+/.pptx-work
+/inspect.ndjson
 
 # misc
 .DS_Store

@@ -8,6 +8,7 @@ import {
 } from 'ionicons/icons';
 import { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
+import NativeVideoAd from '../components/NativeVideoAd';
 import { startXLogin } from '../services/NativeAuth';
 import './Login.css';
 
@@ -99,6 +100,7 @@ const Login: React.FC = () => {
                   {errorMessage}
                 </p>
               )}
+            <NativeVideoAd />
             <div className="login-note"><IonIcon icon={sparklesOutline} /><p>Esta versión es una demostración de la experiencia móvil.</p></div>
             <button className="login-home" onClick={() => navigate('/about')}>Volver al inicio</button>
           </main>
